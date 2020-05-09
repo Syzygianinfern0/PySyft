@@ -4,13 +4,10 @@ from typing import List
 from typing import Tuple
 
 import numpy as np
-import torch as th
-
-from syft.generic.frameworks.types import FrameworkTensorType
-from syft.workers.abstract import AbstractWorker
 
 from syft import exceptions
-
+from syft.generic.frameworks.types import FrameworkTensorType
+from syft.workers.abstract import AbstractWorker
 
 hook_method_args_functions = {}
 hook_method_response_functions = {}
