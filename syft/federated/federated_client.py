@@ -1,9 +1,9 @@
+import numpy as np
 import torch as th
 from torch.utils.data import BatchSampler, RandomSampler, SequentialSampler
-import numpy as np
 
-from syft.generic.object_storage import ObjectStorage
 from syft.federated.train_config import TrainConfig
+from syft.generic.object_storage import ObjectStorage
 
 
 class FederatedClient(ObjectStorage):

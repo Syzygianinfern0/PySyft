@@ -1,25 +1,23 @@
+import asyncio
 import binascii
-from typing import Union
+import logging
+import ssl
+import time
 from typing import List
+from typing import Union
 
 import torch
 import websocket
 import websockets
-import logging
-import ssl
-import time
-import asyncio
 
 import syft as sy
-
 from syft.exceptions import ResponseSignatureError
-
+from syft.generic.pointers.pointer_tensor import PointerTensor
+from syft.generic.tensor import AbstractTensor
 from syft.messaging.message import Message
 from syft.messaging.message import ObjectRequestMessage
 from syft.messaging.message import SearchMessage
 from syft.messaging.message import TensorCommandMessage
-from syft.generic.tensor import AbstractTensor
-from syft.generic.pointers.pointer_tensor import PointerTensor
 from syft.workers.base import BaseWorker
 
 logger = logging.getLogger(__name__)
@@ -177,7 +175,7 @@ class WebsocketClientWorker(BaseWorker):
         return response
 
     async def async_send_command(
-        self, message: tuple, return_ids: str = None, return_value: bool = False,
+        self, message: tuple, return_ids: str = None, return_value: bool = False
     ) -> Union[List[PointerTensor], PointerTensor]:
         """
         Sends a command through a message to the server part attached to the client

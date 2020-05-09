@@ -11,6 +11,7 @@ IMPORTANT: New types added in Serde need to be also defined in `proto.json`.
 """
 
 from syft_proto import proto_info
+
 from syft.exceptions import InvalidProtocolFileError
 from syft.exceptions import UndefinedProtocolTypeError
 from syft.exceptions import UndefinedProtocolTypePropertyError

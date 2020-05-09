@@ -1,4 +1,5 @@
 from torch import jit
+
 from syft.execution.placeholder import PlaceHolder
 from syft.execution.translation.abstract import AbstractPlanTranslator
 

@@ -1,16 +1,12 @@
 from typing import List
-from typing import Tuple
-from typing import Union
-from typing import Dict
 
 import torch
-
-import syft as sy
-from syft.execution.placeholder_id import PlaceholderId
-from syft.workers.abstract import AbstractWorker
 from syft_proto.execution.v1.state_pb2 import State as StatePB
 from syft_proto.execution.v1.state_tensor_pb2 import StateTensor as StateTensorPB
 from syft_proto.types.torch.v1.parameter_pb2 import Parameter as ParameterPB
+
+import syft as sy
+from syft.workers.abstract import AbstractWorker
 
 
 class State:

@@ -1,7 +1,7 @@
 import torch
-import syft
-from syft.generic.pointers.pointer_dataset import PointerDataset
+
 from syft.frameworks.torch.fl.dataset import BaseDataset
+from syft.generic.pointers.pointer_dataset import PointerDataset
 
 
 def test_create_dataset_pointer(workers):

@@ -1,7 +1,8 @@
 """All the tests relative to garbage collection of all kinds of remote or local tensors"""
 
-import syft as sy
 import torch
+
+import syft as sy
 
 hook = sy.TorchHook(torch)
 from torch import nn

@@ -1,11 +1,11 @@
+import pytest
 import torch
 import torch as th
-import syft
 
+import syft
 from syft.frameworks.torch.tensors.interpreters.additive_shared import AdditiveSharingTensor
 from syft.frameworks.torch.tensors.interpreters.precision import FixedPrecisionTensor
 from syft.generic.pointers.pointer_tensor import PointerTensor
-import pytest
 
 
 def test_init(workers):

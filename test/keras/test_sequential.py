@@ -1,6 +1,6 @@
+import numpy as np
 import pytest
 
-import numpy as np
 import syft as sy
 from syft import dependency_check
 

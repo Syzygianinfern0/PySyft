@@ -1,11 +1,10 @@
-import syft as sy
-from syft.workers.abstract import AbstractWorker
+from syft_proto.execution.v1.computation_action_pb2 import ComputationAction as ComputationActionPB
 
+import syft as sy
 from syft.execution.action import Action
 from syft.execution.placeholder import PlaceHolder
 from syft.execution.placeholder_id import PlaceholderId
-
-from syft_proto.execution.v1.computation_action_pb2 import ComputationAction as ComputationActionPB
+from syft.workers.abstract import AbstractWorker
 
 
 class ComputationAction(Action):

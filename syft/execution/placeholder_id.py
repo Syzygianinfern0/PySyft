@@ -1,7 +1,7 @@
+from syft_proto.execution.v1.placeholder_id_pb2 import PlaceholderId as PlaceholderIdPB
+
 import syft as sy
 from syft.workers.abstract import AbstractWorker
-
-from syft_proto.execution.v1.placeholder_id_pb2 import PlaceholderId as PlaceholderIdPB
 
 
 class PlaceholderId:

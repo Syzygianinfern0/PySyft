@@ -1,36 +1,30 @@
 import copy
-from functools import wraps
 import logging
-from math import inf
-import torch
-from torch import nn
-import types
 import weakref
+from functools import wraps
+from math import inf
+
+import torch
 
 import syft
+from syft.execution.placeholder import PlaceHolder
+from syft.execution.plan import Plan
+from syft.frameworks.torch.tensors.decorators.logging import LoggingTensor
+from syft.frameworks.torch.tensors.interpreters.additive_shared import AdditiveSharingTensor
+from syft.frameworks.torch.tensors.interpreters.autograd import AutogradTensor
+from syft.frameworks.torch.tensors.interpreters.hook import HookedTensor
+from syft.frameworks.torch.tensors.interpreters.native import TorchTensor
+from syft.frameworks.torch.tensors.interpreters.paillier import PaillierTensor
+from syft.frameworks.torch.tensors.interpreters.precision import FixedPrecisionTensor
+from syft.frameworks.torch.tensors.interpreters.private import PrivateTensor
+from syft.frameworks.torch.torch_attributes import TorchAttributes
 from syft.generic.frameworks.hook import hook_args
 from syft.generic.frameworks.hook.hook import FrameworkHook
-from syft.generic.tensor import AbstractTensor
 from syft.generic.frameworks.remote import Remote
-from syft.frameworks.torch.tensors.interpreters.autograd import AutogradTensor
-from syft.frameworks.torch.tensors.interpreters.native import TorchTensor
-from syft.frameworks.torch.tensors.interpreters.hook import HookedTensor
-from syft.frameworks.torch.tensors.interpreters.paillier import PaillierTensor
-from syft.frameworks.torch.tensors.decorators.logging import LoggingTensor
-from syft.frameworks.torch.tensors.interpreters.precision import FixedPrecisionTensor
-from syft.frameworks.torch.tensors.interpreters.additive_shared import AdditiveSharingTensor
-from syft.frameworks.torch.tensors.interpreters.private import PrivateTensor
-from syft.execution.placeholder import PlaceHolder
-from syft.frameworks.torch.torch_attributes import TorchAttributes
-from syft.generic.pointers.multi_pointer import MultiPointerTensor
 from syft.generic.pointers.pointer_tensor import PointerTensor
-from syft.generic.tensor import initialize_tensor
 from syft.generic.tensor import _apply_args
 from syft.workers.base import BaseWorker
 from syft.workers.virtual import VirtualWorker
-from syft.execution.plan import Plan
-
-from syft.exceptions import route_method_exception
 
 
 class TorchHook(FrameworkHook):

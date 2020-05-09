@@ -1,12 +1,11 @@
 """To be extended in the near future."""
-from collections import OrderedDict
 import logging
 import os
 import subprocess
 import tempfile
+from collections import OrderedDict
 
 import tf_encrypted as tfe
-
 
 logger = logging.getLogger("tf_encrypted")
 _TMP_DIR = tempfile.gettempdir()

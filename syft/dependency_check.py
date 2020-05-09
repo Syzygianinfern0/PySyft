@@ -1,6 +1,6 @@
+import logging
 from distutils.version import LooseVersion
 from importlib import util
-import logging
 
 logger = logging.getLogger(__name__)
 

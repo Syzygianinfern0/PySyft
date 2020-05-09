@@ -1,13 +1,13 @@
 from typing import List
 from typing import Tuple
 from typing import Union
+
 import syft as sy
+from syft.generic.frameworks.hook import hook_args
+from syft.generic.frameworks.overload import overloaded
+from syft.generic.object import AbstractObject
 from syft.generic.pointers.string_pointer import StringPointer
 from syft.workers.base import BaseWorker
-from syft.generic.object import AbstractObject
-from syft.generic.frameworks.overload import overloaded
-from syft.generic.frameworks.hook import hook_args
-import abc
 
 
 class String(AbstractObject):

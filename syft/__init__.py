@@ -3,18 +3,18 @@ PySyft is a Python library for secure, private Deep Learning.
 PySyft decouples private data from model training, using Federated Learning,
 Differential Privacy, and Multi-Party Computation (MPC) within PyTorch.
 """
+import logging
+
+# This import statement is strictly here to trigger registration of syft
+# tensor types inside hook_args.py.
+import syft.frameworks.torch.hook.hook_args
+
 # We load these modules first so that syft knows which are available
 from syft import dependency_check
 from syft import frameworks  # Triggers registration of any available frameworks
 
 # Major imports
 from syft.version import __version__
-
-# This import statement is strictly here to trigger registration of syft
-# tensor types inside hook_args.py.
-import syft.frameworks.torch.hook.hook_args
-
-import logging
 
 logger = logging.getLogger(__name__)
 

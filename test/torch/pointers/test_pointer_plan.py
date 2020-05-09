@@ -1,8 +1,8 @@
 import torch as th
-import syft as sy
 
-from syft.generic.pointers.pointer_plan import PointerPlan
+import syft as sy
 from syft.execution.plan import Plan
+from syft.generic.pointers.pointer_plan import PointerPlan
 
 
 def test_create_pointer_to_plan(hook, workers):

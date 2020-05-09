@@ -1,6 +1,5 @@
-import pytest
 import torch
-from torch import Tensor
+
 import syft as sy
 
 

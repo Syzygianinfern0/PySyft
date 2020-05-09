@@ -1,5 +1,3 @@
-import unittest.mock as mock
-
 import pytest
 import torch as th
 import torch.nn as nn
@@ -7,14 +5,10 @@ import torch.nn.functional as F
 import torch.optim as optim
 
 import syft as sy
-from itertools import starmap
 from syft.generic.frameworks.types import FrameworkTensor
-from syft.execution.placeholder import PlaceHolder
-from syft.execution.plan import Plan
 from syft.serde.msgpack import serde
 from syft.serde.serde import deserialize
 from syft.serde.serde import serialize
-from syft.execution.translation.torchscript import PlanTranslatorTorchscript
 
 
 def test_plan_built_automatically():

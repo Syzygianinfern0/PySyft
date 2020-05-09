@@ -1,9 +1,9 @@
 import argparse
 
 import torch as th
-from syft.workers.websocket_server import WebsocketServerWorker
 
 import syft as sy
+from syft.workers.websocket_server import WebsocketServerWorker
 
 # Arguments
 parser = argparse.ArgumentParser(description="Run websocket server worker.")

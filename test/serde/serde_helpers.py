@@ -1,10 +1,9 @@
+import io
+import traceback
 from collections import OrderedDict
-import pytest
+
 import numpy
 import torch
-from functools import partial
-import traceback
-import io
 
 import syft
 from syft.serde import msgpack

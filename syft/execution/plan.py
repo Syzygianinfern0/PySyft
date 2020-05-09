@@ -1,31 +1,28 @@
+import copy
+import inspect
+import io
+import warnings
 from typing import List
 from typing import Tuple
 from typing import Union
 
-import copy
-import inspect
-import io
 import torch
-import warnings
+from syft_proto.execution.v1.plan_pb2 import Plan as PlanPB
 
 import syft as sy
 from syft.execution.placeholder import PlaceHolder
-from syft.execution.placeholder_id import PlaceholderId
 from syft.execution.role import Role
-from syft.execution.state import State
 from syft.execution.tracing import trace
 from syft.execution.translation.abstract import AbstractPlanTranslator
 from syft.execution.translation.default import PlanTranslatorDefault
 from syft.execution.translation.torchscript import PlanTranslatorTorchscript
+from syft.frameworks.torch.tensors.interpreters.autograd import AutogradTensor
 from syft.generic.frameworks import framework_packages
-from syft.generic.frameworks.types import FrameworkTensor
 from syft.generic.frameworks.types import FrameworkLayerModule
+from syft.generic.frameworks.types import FrameworkTensor
 from syft.generic.object import AbstractObject
 from syft.generic.pointers.pointer_plan import PointerPlan
 from syft.workers.abstract import AbstractWorker
-from syft.frameworks.torch.tensors.interpreters.autograd import AutogradTensor
-
-from syft_proto.execution.v1.plan_pb2 import Plan as PlanPB
 
 
 class func2plan(object):

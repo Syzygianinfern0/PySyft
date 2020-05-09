@@ -1,11 +1,10 @@
 import builtins
-from multiprocessing import Process
-import sys
-import time
 import os
 import shutil
-from pathlib import Path
+import sys
 import tempfile
+import time
+from multiprocessing import Process
 
 import pytest
 import torch
@@ -28,7 +27,7 @@ def pytest_runtest_makereport(item, call):  # pragma: no cover
 
 def pytest_runtest_setup(item):  # pragma: no cover
     if item.originalname in item.session.failed_tests:
-        pytest.skip("previous test failed (%s)" % item.name)
+        pytest.skip(f"previous test failed ({item.name})")
 
 
 def _start_proc(participant, dataset: str = None, **kwargs):  # pragma: no cover

@@ -2,41 +2,32 @@
 This file exists to provide one common place for all serialisation and bufferize_ and _unbufferize
 for all tensors (Torch and Numpy).
 """
-from collections import OrderedDict
 import io
-from tempfile import TemporaryFile
-from typing import Tuple, List
-import warnings
+from collections import OrderedDict
 
-import numpy
 import torch
-
-import syft
-from syft.generic.pointers.pointer_tensor import PointerTensor
-from syft.generic.tensor import initialize_tensor
-from syft.generic.tensor import AbstractTensor
-from syft.workers.abstract import AbstractWorker
-from syft.codes import TENSOR_SERIALIZATION
-
-from syft.serde.protobuf.proto import get_protobuf_id
-from syft.serde.protobuf.proto import set_protobuf_id
-from syft.serde.torch.serde import TORCH_DTYPE_STR
-from syft.serde.torch.serde import TORCH_STR_DTYPE
-from syft.serde.torch.serde import torch_tensor_serializer
-from syft.serde.torch.serde import torch_tensor_deserializer
-from syft.serde.torch.serde import numpy_tensor_serializer
-from syft.serde.torch.serde import numpy_tensor_deserializer
-
-from syft_proto.types.syft.v1.shape_pb2 import Shape as ShapePB
-from syft_proto.types.torch.v1.script_function_pb2 import ScriptFunction as ScriptFunctionPB
 from syft_proto.types.torch.v1.device_pb2 import Device as DevicePB
 from syft_proto.types.torch.v1.parameter_pb2 import Parameter as ParameterPB
+from syft_proto.types.torch.v1.script_function_pb2 import ScriptFunction as ScriptFunctionPB
 from syft_proto.types.torch.v1.script_module_pb2 import ScriptModule as ScriptModulePB
 from syft_proto.types.torch.v1.size_pb2 import Size as SizePB
 from syft_proto.types.torch.v1.tensor_data_pb2 import TensorData as TensorDataPB
 from syft_proto.types.torch.v1.tensor_pb2 import TorchTensor as TorchTensorPB
 from syft_proto.types.torch.v1.traced_module_pb2 import TracedModule as TracedModulePB
 
+import syft
+from syft.codes import TENSOR_SERIALIZATION
+from syft.generic.pointers.pointer_tensor import PointerTensor
+from syft.generic.tensor import initialize_tensor
+from syft.serde.protobuf.proto import get_protobuf_id
+from syft.serde.protobuf.proto import set_protobuf_id
+from syft.serde.torch.serde import TORCH_DTYPE_STR
+from syft.serde.torch.serde import TORCH_STR_DTYPE
+from syft.serde.torch.serde import numpy_tensor_deserializer
+from syft.serde.torch.serde import numpy_tensor_serializer
+from syft.serde.torch.serde import torch_tensor_deserializer
+from syft.serde.torch.serde import torch_tensor_serializer
+from syft.workers.abstract import AbstractWorker
 
 SERIALIZERS_SYFT_TO_PROTOBUF = {
     TENSOR_SERIALIZATION.TORCH: TorchTensorPB.Serializer.SERIALIZER_TORCH,

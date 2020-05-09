@@ -1,25 +1,21 @@
-import math
-from typing import Union, Tuple, List
-import warnings
 import weakref
+from typing import Union, Tuple, List
 
-import numpy as np
 import torch
 
 import syft
+from syft.exceptions import InvalidTensorForRemoteGet
+from syft.exceptions import PureFrameworkTensorFoundError
+from syft.exceptions import SendNotPermittedError
+from syft.frameworks.torch.tensors.interpreters.paillier import PaillierTensor
 from syft.generic.frameworks.hook import hook_args
 from syft.generic.frameworks.overload import overloaded
-from syft.frameworks.torch.tensors.interpreters.paillier import PaillierTensor
-from syft.messaging.message import TensorCommandMessage
 from syft.generic.frameworks.types import FrameworkTensor
-from syft.generic.tensor import AbstractTensor
 from syft.generic.pointers.pointer_tensor import PointerTensor
+from syft.generic.tensor import AbstractTensor
 from syft.generic.utils import memorize
+from syft.messaging.message import TensorCommandMessage
 from syft.workers.base import BaseWorker
-
-from syft.exceptions import PureFrameworkTensorFoundError
-from syft.exceptions import InvalidTensorForRemoteGet
-from syft.exceptions import SendNotPermittedError
 
 
 def _get_maximum_precision():

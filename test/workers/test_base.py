@@ -1,11 +1,11 @@
-import pytest
 import time
+from types import MethodType
+from unittest import mock
+
+import pytest
+import torch as th
 
 import syft as sy
-import torch as th
-from unittest import mock
-from types import MethodType
-
 from syft.workers.websocket_client import WebsocketClientWorker
 from syft.workers.websocket_server import WebsocketServerWorker
 

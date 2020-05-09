@@ -1,9 +1,9 @@
-import torch
-from torch.utils.data import SequentialSampler, RandomSampler, BatchSampler
-from torch._six import string_classes, int_classes, container_abcs
-
 import logging
 import math
+
+import torch
+from torch._six import string_classes, int_classes, container_abcs
+from torch.utils.data import SequentialSampler, RandomSampler, BatchSampler
 
 numpy_type_map = {
     "float64": torch.DoubleTensor,

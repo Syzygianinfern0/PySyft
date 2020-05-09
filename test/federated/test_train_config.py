@@ -1,15 +1,13 @@
-import pytest
-
 from unittest import mock
 
+import pytest
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import syft as sy
 
-from syft.workers.websocket_client import WebsocketClientWorker
-from syft.workers.websocket_server import WebsocketServerWorker
+import syft as sy
 from syft.frameworks.torch.fl import utils
+from syft.workers.websocket_client import WebsocketClientWorker
 
 PRINT_IN_UNITTESTS = False
 

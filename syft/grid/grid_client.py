@@ -1,8 +1,7 @@
+import binascii
 import json
 
-import binascii
 import websocket
-import websockets
 
 import syft as sy
 from syft.serde import protobuf

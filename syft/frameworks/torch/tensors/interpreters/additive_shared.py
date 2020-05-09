@@ -1,23 +1,21 @@
 import math
-import torch
 import warnings
 
-import syft as sy
-from syft.frameworks.torch.mpc import crypto_protocol
-from syft.frameworks.torch.mpc import spdz
-from syft.frameworks.torch.mpc import securenn
-from syft.frameworks.torch.mpc import fss
-from syft.generic.utils import memorize
-
-from syft.generic.tensor import AbstractTensor
-from syft.generic.frameworks.hook import hook_args
-from syft.generic.frameworks.overload import overloaded
-from syft.workers.abstract import AbstractWorker
-
+import torch
 from syft_proto.frameworks.torch.tensors.interpreters.v1.additive_shared_pb2 import (
     AdditiveSharingTensor as AdditiveSharingTensorPB,
 )
-from syft_proto.types.syft.v1.id_pb2 import Id as IdPB
+
+import syft as sy
+from syft.frameworks.torch.mpc import crypto_protocol
+from syft.frameworks.torch.mpc import fss
+from syft.frameworks.torch.mpc import securenn
+from syft.frameworks.torch.mpc import spdz
+from syft.generic.frameworks.hook import hook_args
+from syft.generic.frameworks.overload import overloaded
+from syft.generic.tensor import AbstractTensor
+from syft.generic.utils import memorize
+from syft.workers.abstract import AbstractWorker
 
 no_wrap = {"no_wrap": True}
 

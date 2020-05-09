@@ -1,10 +1,9 @@
-import pytest
 import torch
-import syft as sy
+
 from syft.frameworks.torch.linalg import inv_sym
 from syft.frameworks.torch.linalg import qr
-from syft.frameworks.torch.linalg.operations import _norm_mpc
 from syft.frameworks.torch.linalg.lr import DASH
+from syft.frameworks.torch.linalg.operations import _norm_mpc
 
 
 def test_inv_sym(hook, workers):

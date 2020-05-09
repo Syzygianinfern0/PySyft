@@ -1,8 +1,6 @@
 import pytest
-
 import torch
 
-import syft
 from syft.frameworks.torch.mpc.securenn import (
     private_compare,
     decompose,

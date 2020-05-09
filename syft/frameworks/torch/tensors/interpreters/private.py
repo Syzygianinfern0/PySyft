@@ -1,14 +1,12 @@
+from typing import Tuple
+
 import torch
+
 import syft
-
-from typing import List, Tuple
-
 from syft.generic.frameworks.hook import hook_args
 from syft.generic.frameworks.overload import overloaded
-
-
-from syft.workers.abstract import AbstractWorker
 from syft.generic.tensor import AbstractTensor
+from syft.workers.abstract import AbstractWorker
 
 
 class PrivateTensor(AbstractTensor):

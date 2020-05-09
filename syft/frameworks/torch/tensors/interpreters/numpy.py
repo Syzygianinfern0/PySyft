@@ -1,8 +1,8 @@
 import numpy as np
 
+from syft.frameworks.torch.tensors.interpreters.hook import HookedTensor
 from syft.generic.frameworks.hook import hook_args
 from syft.generic.frameworks.overload import overloaded
-from syft.frameworks.torch.tensors.interpreters.hook import HookedTensor
 
 
 class NumpyTensor(HookedTensor):

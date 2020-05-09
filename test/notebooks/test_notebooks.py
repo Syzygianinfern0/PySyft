@@ -1,22 +1,17 @@
+import codecs
 import glob
 import os
 import sys
-import time
 import urllib.request
 from pathlib import Path
 from zipfile import ZipFile
-import codecs
 
-import pytest
 import nbformat
-import numpy as np
-import pandas as pd
 import papermill as pm
+import pytest
 import torch
 
 import syft as sy
-from syft import TorchHook
-from syft.workers.websocket_server import WebsocketServerWorker
 
 # lets start by finding all notebooks currently available in examples and subfolders
 all_notebooks = [n for n in glob.glob("examples/tutorials/**/*.ipynb", recursive=True)]

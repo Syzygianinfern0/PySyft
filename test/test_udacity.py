@@ -191,8 +191,6 @@ def test_section_1_differential_privacy():
 
     epsilon = 0.0001
 
-    import numpy as np
-
     db, pdbs = create_db_and_parallels(100)
 
     def sum_query(db):

@@ -1,15 +1,16 @@
-import logging
 import argparse
-import sys
 import asyncio
+import logging
+import sys
+
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
 import syft as sy
-from syft.workers import websocket_client
 from syft.frameworks.torch.fl import utils
+from syft.workers import websocket_client
 
 LOG_INTERVAL = 25
 logger = logging.getLogger("run_websocket_client")

@@ -20,8 +20,6 @@ from syft.serde.msgpack import native_serde
 from syft.serde.msgpack import torch_serde
 from syft.workers.virtual import VirtualWorker
 
-from syft.exceptions import CompressionNotFoundException
-
 
 def test_tuple_simplify(workers):
     """This tests our ability to simplify tuple types.

@@ -1,11 +1,12 @@
 import glob
-import os.path
 import json
+import os.path
+
 from syft.grid.authentication.credential import AbstractCredential
 
 
 class AccountCredential(AbstractCredential):
-    """Parse/represent credentials based on username-password structure. 
+    """Parse/represent credentials based on username-password structure.
         Expected JSON Format:
         { "accounts": [ {"user": "example1", "password": "pass_example"},
                           {"user": "user2", "password": "password2"},

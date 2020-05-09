@@ -1,5 +1,6 @@
-import syft as sy
 import torch
+
+import syft as sy
 
 
 def test_plan_module_tracing():

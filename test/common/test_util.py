@@ -1,5 +1,6 @@
-import torch
 import itertools
+
+import torch
 
 from syft.common.util import chebyshev_series, chebyshev_polynomials
 

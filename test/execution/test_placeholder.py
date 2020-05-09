@@ -1,7 +1,7 @@
-import syft as sy
-import torch
 import pytest
+import torch
 
+import syft as sy
 from syft.execution.placeholder import PlaceHolder
 
 

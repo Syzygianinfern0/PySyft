@@ -6,7 +6,9 @@ use an existing sub-class of Message or add a new one.
 """
 
 from collections import OrderedDict
+
 from google.protobuf.empty_pb2 import Empty
+
 from syft.workers.abstract import AbstractWorker
 
 

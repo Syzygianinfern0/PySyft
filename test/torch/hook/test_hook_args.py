@@ -1,7 +1,8 @@
+import numpy as np
+import torch
+
 from syft.generic.frameworks.hook import hook_args
 from syft.generic.pointers.pointer_tensor import PointerTensor
-import torch
-import numpy as np
 
 
 def test_build_rule_syft_tensors_and_pointers():

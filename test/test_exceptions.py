@@ -1,8 +1,7 @@
 import pytest
 import torch as th
-import syft as sy
 
-from syft.frameworks.torch.tensors.decorators.logging import LoggingTensor
+import syft as sy
 
 
 def test_tensors_not_collated_exception(workers):

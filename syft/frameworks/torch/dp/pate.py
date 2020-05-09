@@ -29,7 +29,6 @@ teachers as well). We however include the label files required to
 reproduce key results from our paper (https://arxiv.org/abs/1610.05755):
 the epsilon bounds for MNIST and SVHN students.
 """
-import os
 import math
 from typing import List, Tuple, Union
 

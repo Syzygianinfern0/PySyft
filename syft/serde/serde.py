@@ -7,9 +7,9 @@ the function apply_compress_scheme.
 
 from typing import Callable
 
+from syft.serde import msgpack
 from syft.workers.abstract import AbstractWorker
 
-from syft.serde import msgpack
 
 ## SECTION:  High Level Public Functions (these are the ones you use)
 def serialize(

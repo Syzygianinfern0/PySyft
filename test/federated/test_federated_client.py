@@ -1,12 +1,11 @@
 import pytest
-
 import torch
 
 import syft as sy
 from syft.federated.federated_client import FederatedClient
 from syft.federated.train_config import TrainConfig
-from syft.generic.pointers.object_wrapper import ObjectWrapper
 from syft.frameworks.torch.fl import utils
+from syft.generic.pointers.object_wrapper import ObjectWrapper
 
 PRINT_IN_UNITTESTS = False
 

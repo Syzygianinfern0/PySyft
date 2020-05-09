@@ -1,18 +1,19 @@
 import random
-import torch
-
 from typing import Any
-from typing import Tuple
 from typing import Dict
+from typing import Tuple
 from typing import Union
 
-# Syft imports
+import torch
 
 import syft
-from syft.grid.abstract_grid import AbstractGrid
-from syft.workers.node_client import NodeClient
 from syft.execution.plan import Plan
 from syft.frameworks.torch.tensors.interpreters.additive_shared import AdditiveSharingTensor
+from syft.grid.abstract_grid import AbstractGrid
+from syft.workers.node_client import NodeClient
+
+
+# Syft imports
 
 
 class PrivateGridNetwork(AbstractGrid):

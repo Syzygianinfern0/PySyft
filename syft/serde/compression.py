@@ -3,6 +3,7 @@ This file exists to provide one common place for all compression methods used in
 simplifying and serializing PySyft objects.
 """
 import zlib
+
 import lz4
 from lz4 import (  # noqa: F401
     frame,

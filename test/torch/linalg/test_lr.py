@@ -1,8 +1,9 @@
 import pytest
 import torch
+
 import syft as sy
-from syft.frameworks.torch.linalg import EncryptedLinearRegression
 from syft.frameworks.torch.linalg import DASH
+from syft.frameworks.torch.linalg import EncryptedLinearRegression
 
 
 @pytest.mark.parametrize("fit_intercept", [False, True])

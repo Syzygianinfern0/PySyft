@@ -1,19 +1,20 @@
-import torch
-import requests
 import json
-
-from typing import Union
-from typing import List
 from typing import Any
-from typing import Tuple
 from typing import Dict
+from typing import List
+from typing import Tuple
+from typing import Union
+
+import requests
+import torch
+
+from syft.codes import GATEWAY_ENDPOINTS
+from syft.execution.plan import Plan
+from syft.grid.abstract_grid import AbstractGrid
 
 # Syft imports
 from syft.grid.authentication.credential import AbstractCredential
-from syft.grid.abstract_grid import AbstractGrid
 from syft.workers.node_client import NodeClient
-from syft.execution.plan import Plan
-from syft.codes import GATEWAY_ENDPOINTS
 
 
 class PublicGridNetwork(AbstractGrid):

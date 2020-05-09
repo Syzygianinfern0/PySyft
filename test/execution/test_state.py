@@ -1,18 +1,11 @@
-import unittest.mock as mock
+from itertools import starmap
 
 import pytest
 import torch as th
 import torch.nn as nn
 import torch.nn.functional as F
-import torch.optim as optim
 
 import syft as sy
-from itertools import starmap
-from syft.generic.frameworks.types import FrameworkTensor
-from syft.execution.placeholder import PlaceHolder
-from syft.execution.plan import Plan
-from syft.serde.serde import deserialize
-from syft.serde.serde import serialize
 
 
 def test_stateful_plan_built_automatically(hook):

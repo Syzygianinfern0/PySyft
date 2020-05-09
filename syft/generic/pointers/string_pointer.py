@@ -4,18 +4,16 @@ from typing import Union
 from syft.generic.pointers.object_pointer import ObjectPointer
 from syft.workers.base import BaseWorker
 
-import abc
-
 
 class StringPointer(ObjectPointer):
     # , metaclass=PointerClassMaker, pointed_type=String):
     """
        This class defines a pointer to a 'String' object that might live
-       on a remote machine. In other words, it holds a pointer to a 
-       'String' object owned by a possibly different worker (although 
+       on a remote machine. In other words, it holds a pointer to a
+       'String' object owned by a possibly different worker (although
        it can also point to a String owned by the same worker'.
 
-       All String method are hooked to objects of this class, and calls to 
+       All String method are hooked to objects of this class, and calls to
        such methods are forwarded to the pointed-to String object.
     """
 

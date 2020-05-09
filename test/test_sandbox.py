@@ -1,5 +1,3 @@
-import pytest
-import torch
 import syft as sy
 
 # Import Hook

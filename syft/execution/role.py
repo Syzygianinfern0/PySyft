@@ -3,21 +3,15 @@ from typing import List
 from typing import Tuple
 from typing import Union
 
-import copy
-
-from syft.generic.frameworks import framework_packages
+from syft_proto.execution.v1.role_pb2 import Role as RolePB
 
 import syft as sy
 from syft.execution.action import Action
 from syft.execution.placeholder import PlaceHolder
 from syft.execution.placeholder_id import PlaceholderId
 from syft.execution.state import State
-from syft.generic.frameworks.types import FrameworkTensor
-from syft.generic.object import AbstractObject
-from syft.generic.object_storage import ObjectStorage
+from syft.generic.frameworks import framework_packages
 from syft.workers.abstract import AbstractWorker
-
-from syft_proto.execution.v1.role_pb2 import Role as RolePB
 
 
 class Role:

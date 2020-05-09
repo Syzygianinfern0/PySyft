@@ -10,8 +10,8 @@ Note that the protocols are quite different in aspect from those papers
 import hashlib
 
 import torch as th
-import syft as sy
 
+import syft as sy
 
 λ = 110  # 6  # 110 or 63  # security parameter
 n = 32  # 8  # 32  # bit precision

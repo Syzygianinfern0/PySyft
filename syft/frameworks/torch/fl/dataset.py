@@ -1,11 +1,13 @@
-import math
 import logging
-from syft.generic.object import AbstractObject
-from syft.workers.base import BaseWorker
-from syft.generic.pointers.pointer_dataset import PointerDataset
+import math
+
 import torch
 from torch.utils.data import Dataset
+
 import syft
+from syft.generic.object import AbstractObject
+from syft.generic.pointers.pointer_dataset import PointerDataset
+from syft.workers.base import BaseWorker
 
 logger = logging.getLogger(__name__)
 

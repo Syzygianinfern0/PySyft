@@ -1,9 +1,5 @@
-import copy
 import pytest
-
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
 
 import syft
 from syft.frameworks.torch.tensors.interpreters.additive_shared import AdditiveSharingTensor

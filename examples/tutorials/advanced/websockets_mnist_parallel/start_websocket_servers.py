@@ -1,11 +1,10 @@
+import signal
 import subprocess
+import sys
+from pathlib import Path
 
 from torchvision import datasets
 from torchvision import transforms
-from pathlib import Path
-
-import signal
-import sys
 
 # Downloads MNIST dataset
 mnist_trainset = datasets.MNIST(

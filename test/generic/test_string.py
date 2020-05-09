@@ -1,5 +1,5 @@
-from syft.generic.string import String
 import syft as sy
+from syft.generic.string import String
 
 
 def test_string_methods():

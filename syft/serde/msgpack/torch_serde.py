@@ -2,32 +2,28 @@
 This file exists to provide one common place for all serialisation and simplify_ and _detail
 for all tensors (Torch and Numpy).
 """
-from collections import OrderedDict
 import io
-from tempfile import TemporaryFile
-from typing import Tuple, List
 import warnings
+from collections import OrderedDict
+from typing import Tuple
 
-import numpy
 import torch
 
 import syft
-from syft.generic.pointers.pointer_tensor import PointerTensor
-from syft.generic.pointers.multi_pointer import MultiPointerTensor
-from syft.generic.tensor import initialize_tensor
-from syft.generic.tensor import AbstractTensor
-from syft.workers.abstract import AbstractWorker
-from syft.serde.msgpack import serde
 from syft.codes import TENSOR_SERIALIZATION
-
+from syft.generic.pointers.multi_pointer import MultiPointerTensor
+from syft.generic.pointers.pointer_tensor import PointerTensor
+from syft.generic.tensor import AbstractTensor
+from syft.generic.tensor import initialize_tensor
+from syft.serde.msgpack import serde
 from syft.serde.torch.serde import TORCH_DTYPE_STR
-from syft.serde.torch.serde import TORCH_STR_DTYPE
-from syft.serde.torch.serde import TORCH_MFORMAT_ID
 from syft.serde.torch.serde import TORCH_ID_MFORMAT
-from syft.serde.torch.serde import torch_tensor_serializer
-from syft.serde.torch.serde import torch_tensor_deserializer
+from syft.serde.torch.serde import TORCH_MFORMAT_ID
+from syft.serde.torch.serde import TORCH_STR_DTYPE
 from syft.serde.torch.serde import numpy_tensor_serializer
-from syft.serde.torch.serde import numpy_tensor_deserializer
+from syft.serde.torch.serde import torch_tensor_deserializer
+from syft.serde.torch.serde import torch_tensor_serializer
+from syft.workers.abstract import AbstractWorker
 
 
 def _serialize_tensor(worker: AbstractWorker, tensor) -> bin:

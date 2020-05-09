@@ -3,9 +3,8 @@ import torch
 from torch import nn
 from torch.nn import init
 
-
-from syft.frameworks.torch.tensors.interpreters.additive_shared import AdditiveSharingTensor
 from syft.frameworks.torch.tensors.interpreters import precision
+from syft.frameworks.torch.tensors.interpreters.additive_shared import AdditiveSharingTensor
 from syft.generic.pointers.pointer_tensor import PointerTensor
 
 

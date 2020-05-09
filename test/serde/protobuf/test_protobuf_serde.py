@@ -1,6 +1,3 @@
-import torch
-
-import syft
 from syft.serde import protobuf
 from syft.serde.torch.serde import TORCH_STR_DTYPE
 

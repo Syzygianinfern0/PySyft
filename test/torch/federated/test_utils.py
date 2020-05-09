@@ -1,10 +1,9 @@
 import pytest
-
 import torch as th
-import syft as sy
 
-from syft.frameworks.torch.fl import utils
+import syft as sy
 from syft.frameworks.torch import fl
+from syft.frameworks.torch.fl import utils
 
 
 def test_extract_batches_per_worker(workers):

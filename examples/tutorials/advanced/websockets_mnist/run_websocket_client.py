@@ -1,16 +1,17 @@
+import argparse
+import logging
+import sys
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as f
 import torch.optim as optim
 from torchvision import datasets, transforms
-import logging
-import argparse
-import sys
 
 import syft as sy
-from syft.workers.websocket_client import WebsocketClientWorker
-from syft.workers.virtual import VirtualWorker
 from syft.frameworks.torch.fl import utils
+from syft.workers.virtual import VirtualWorker
+from syft.workers.websocket_client import WebsocketClientWorker
 
 logger = logging.getLogger(__name__)
 

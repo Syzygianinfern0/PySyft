@@ -1,20 +1,19 @@
 from typing import List, Union
 
-import syft
-from syft.generic.frameworks.hook.hook_args import one
-from syft.generic.frameworks.hook.hook_args import register_type_rule
-from syft.generic.frameworks.hook.hook_args import register_forward_func
-from syft.generic.frameworks.hook.hook_args import register_backward_func
-from syft.generic.frameworks.types import FrameworkShapeType
-from syft.generic.frameworks.types import FrameworkTensor
-from syft.generic.tensor import AbstractTensor
-from syft.generic.pointers.object_pointer import ObjectPointer
-from syft.messaging.message import TensorCommandMessage
-from syft.workers.abstract import AbstractWorker
-
 from syft_proto.generic.pointers.v1.pointer_tensor_pb2 import PointerTensor as PointerTensorPB
 
+import syft
 from syft.exceptions import RemoteObjectFoundError
+from syft.generic.frameworks.hook.hook_args import one
+from syft.generic.frameworks.hook.hook_args import register_backward_func
+from syft.generic.frameworks.hook.hook_args import register_forward_func
+from syft.generic.frameworks.hook.hook_args import register_type_rule
+from syft.generic.frameworks.types import FrameworkShapeType
+from syft.generic.frameworks.types import FrameworkTensor
+from syft.generic.pointers.object_pointer import ObjectPointer
+from syft.generic.tensor import AbstractTensor
+from syft.messaging.message import TensorCommandMessage
+from syft.workers.abstract import AbstractWorker
 
 
 class PointerTensor(ObjectPointer, AbstractTensor):

@@ -1,8 +1,10 @@
-import syft as sy
-import torch
-from typing import Dict
-from typing import Any
 import logging
+from typing import Any
+from typing import Dict
+
+import torch
+
+import syft as sy
 
 logger = logging.getLogger(__name__)
 

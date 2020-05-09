@@ -1,31 +1,30 @@
+import logging
 from abc import abstractmethod
 from contextlib import contextmanager
-
-import logging
-from typing import Callable
 from typing import List
-from typing import Tuple
-from typing import Union
 from typing import TYPE_CHECKING
+from typing import Union
 
 import syft as sy
 from syft import codes
+from syft.exceptions import GetNotPermittedError
+from syft.exceptions import ObjectNotFoundError
+from syft.exceptions import PlanCommandUnknownError
+from syft.exceptions import ResponseSignatureError
+from syft.exceptions import WorkerNotFoundException
+from syft.execution.communication import CommunicationAction
+from syft.execution.computation import ComputationAction
 from syft.execution.plan import Plan
 from syft.frameworks.torch.mpc.primitives import PrimitiveStorage
-from syft.execution.computation import ComputationAction
-from syft.execution.communication import CommunicationAction
 from syft.generic.frameworks.hook import hook_args
 from syft.generic.frameworks.remote import Remote
-from syft.generic.frameworks.types import FrameworkTensorType
-from syft.generic.frameworks.types import FrameworkTensor
 from syft.generic.frameworks.types import FrameworkShape
+from syft.generic.frameworks.types import FrameworkTensor
+from syft.generic.frameworks.types import FrameworkTensorType
 from syft.generic.object_storage import ObjectStorage
-from syft.generic.object import AbstractObject
 from syft.generic.pointers.object_pointer import ObjectPointer
 from syft.generic.pointers.pointer_tensor import PointerTensor
 from syft.generic.tensor import AbstractTensor
-from syft.messaging.message import TensorCommandMessage
-from syft.messaging.message import WorkerCommandMessage
 from syft.messaging.message import ForceObjectDeleteMessage
 from syft.messaging.message import GetShapeMessage
 from syft.messaging.message import IsNoneMessage
@@ -34,14 +33,9 @@ from syft.messaging.message import ObjectMessage
 from syft.messaging.message import ObjectRequestMessage
 from syft.messaging.message import PlanCommandMessage
 from syft.messaging.message import SearchMessage
+from syft.messaging.message import TensorCommandMessage
+from syft.messaging.message import WorkerCommandMessage
 from syft.workers.abstract import AbstractWorker
-
-from syft.exceptions import GetNotPermittedError
-from syft.exceptions import ObjectNotFoundError
-from syft.exceptions import PlanCommandUnknownError
-from syft.exceptions import ResponseSignatureError
-from syft.exceptions import WorkerNotFoundException
-
 
 # this if statement avoids circular imports between base.py and pointer.py
 if TYPE_CHECKING:

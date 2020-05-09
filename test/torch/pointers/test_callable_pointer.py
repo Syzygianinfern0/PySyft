@@ -1,4 +1,5 @@
 import torch
+
 from syft.generic.pointers import callable_pointer
 from syft.generic.pointers.object_wrapper import ObjectWrapper
 

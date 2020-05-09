@@ -1,5 +1,4 @@
 import io
-from tempfile import TemporaryFile
 import warnings
 
 import numpy

@@ -1,5 +1,5 @@
-from abc import ABC
 import functools
+from abc import ABC
 from typing import Set
 
 import syft as sy

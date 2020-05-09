@@ -1,14 +1,16 @@
-from multiprocessing import Process
 import argparse
-import os
 import logging
-import syft as sy
-from syft.workers.websocket_server import WebsocketServerWorker
-import torch
+import os
+from multiprocessing import Process
+
 import numpy as np
+import torch
 from torchvision import datasets
 from torchvision import transforms
+
+import syft as sy
 from syft.frameworks.torch.fl import utils
+from syft.workers.websocket_server import WebsocketServerWorker
 
 KEEP_LABELS_DICT = {
     "alice": [0, 1, 2, 3],

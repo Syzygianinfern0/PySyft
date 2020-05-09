@@ -30,56 +30,52 @@ serialization process, it can override the functions _serialize_tensor and _dese
 By default, we serialize using msgpack and compress using lz4.
 If different compressions are required, the worker can override the function apply_compress_scheme
 """
-from collections import OrderedDict
-from typing import Callable
-
 import inspect
+from collections import OrderedDict
+
 import msgpack as msgpack_lib
 
 import syft
 from syft import dependency_check
-
-from syft.federated.train_config import TrainConfig
-from syft.frameworks.torch.tensors.decorators.logging import LoggingTensor
-from syft.frameworks.torch.tensors.interpreters.precision import FixedPrecisionTensor
-from syft.frameworks.torch.tensors.interpreters.private import PrivateTensor
-from syft.frameworks.torch.tensors.interpreters.additive_shared import AdditiveSharingTensor
-from syft.frameworks.torch.tensors.interpreters.autograd import AutogradTensor
+from syft.exceptions import GetNotPermittedError
+from syft.exceptions import ResponseSignatureError
+from syft.execution.communication import CommunicationAction
+from syft.execution.computation import ComputationAction
 from syft.execution.placeholder import PlaceHolder
 from syft.execution.placeholder_id import PlaceholderId
-from syft.execution.role import Role
-from syft.generic.pointers.multi_pointer import MultiPointerTensor
-from syft.generic.pointers.object_pointer import ObjectPointer
-from syft.generic.pointers.pointer_tensor import PointerTensor
-from syft.generic.pointers.pointer_plan import PointerPlan
-from syft.generic.pointers.object_wrapper import ObjectWrapper
-from syft.generic.string import String
 from syft.execution.plan import Plan
 from syft.execution.protocol import Protocol
+from syft.execution.role import Role
 from syft.execution.state import State
-from syft.execution.computation import ComputationAction
-from syft.execution.communication import CommunicationAction
-from syft.messaging.message import TensorCommandMessage
+from syft.federated.train_config import TrainConfig
+from syft.frameworks.torch.fl import BaseDataset
+from syft.frameworks.torch.tensors.decorators.logging import LoggingTensor
+from syft.frameworks.torch.tensors.interpreters.additive_shared import AdditiveSharingTensor
+from syft.frameworks.torch.tensors.interpreters.autograd import AutogradTensor
+from syft.frameworks.torch.tensors.interpreters.gradients_core import GradFunc
+from syft.frameworks.torch.tensors.interpreters.precision import FixedPrecisionTensor
+from syft.frameworks.torch.tensors.interpreters.private import PrivateTensor
+from syft.generic.pointers.multi_pointer import MultiPointerTensor
+from syft.generic.pointers.object_pointer import ObjectPointer
+from syft.generic.pointers.object_wrapper import ObjectWrapper
+from syft.generic.pointers.pointer_dataset import PointerDataset
+from syft.generic.pointers.pointer_plan import PointerPlan
+from syft.generic.pointers.pointer_tensor import PointerTensor
+from syft.generic.string import String
+from syft.messaging.message import ForceObjectDeleteMessage
+from syft.messaging.message import GetShapeMessage
+from syft.messaging.message import IsNoneMessage
 from syft.messaging.message import ObjectMessage
 from syft.messaging.message import ObjectRequestMessage
-from syft.messaging.message import IsNoneMessage
-from syft.messaging.message import GetShapeMessage
-from syft.messaging.message import ForceObjectDeleteMessage
-from syft.messaging.message import SearchMessage
 from syft.messaging.message import PlanCommandMessage
+from syft.messaging.message import SearchMessage
+from syft.messaging.message import TensorCommandMessage
 from syft.messaging.message import WorkerCommandMessage
 from syft.serde import compression
 from syft.serde import msgpack
 from syft.serde.msgpack.native_serde import MAP_NATIVE_SIMPLIFIERS_AND_DETAILERS
 from syft.workers.abstract import AbstractWorker
 from syft.workers.base import BaseWorker
-from syft.frameworks.torch.fl import BaseDataset
-from syft.generic.pointers.pointer_dataset import PointerDataset
-
-from syft.exceptions import GetNotPermittedError
-from syft.exceptions import ResponseSignatureError
-
-from syft.frameworks.torch.tensors.interpreters.gradients_core import GradFunc
 
 if dependency_check.torch_available:
     from syft.serde.msgpack.torch_serde import MAP_TORCH_SIMPLIFIERS_AND_DETAILERS

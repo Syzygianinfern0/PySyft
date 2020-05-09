@@ -1,23 +1,21 @@
-from abc import ABC
-from abc import abstractmethod
-from functools import wraps
 import inspect
 import re
 import types
+from abc import ABC
+from abc import abstractmethod
+from functools import wraps
 from typing import List, Tuple
 
 import syft
+from syft.exceptions import TensorsNotCollocatedException
+from syft.exceptions import route_method_exception
 from syft.generic.frameworks.hook import hook_args
+from syft.generic.pointers.multi_pointer import MultiPointerTensor
 from syft.generic.pointers.object_pointer import ObjectPointer
 from syft.generic.pointers.pointer_tensor import PointerTensor
-from syft.generic.pointers.multi_pointer import MultiPointerTensor
-from syft.generic.string import String
 from syft.generic.pointers.string_pointer import StringPointer
-from syft.generic.tensor import _apply_args
+from syft.generic.string import String
 from syft.workers.base import BaseWorker
-
-from syft.exceptions import route_method_exception
-from syft.exceptions import TensorsNotCollocatedException
 
 
 class FrameworkHook(ABC):

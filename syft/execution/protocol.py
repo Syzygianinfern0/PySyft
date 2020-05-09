@@ -3,25 +3,13 @@ from typing import List
 from typing import Tuple
 from typing import Union
 
-import copy
-import inspect
-import io
-import torch
-import warnings
+from syft_proto.execution.v1.protocol_pb2 import Protocol as ProtocolPB
 
 import syft as sy
 from syft.execution.placeholder import PlaceHolder
 from syft.execution.role import Role
-from syft.execution.state import State
-from syft.execution.tracing import trace
-
-from syft.generic.frameworks import framework_packages
-from syft.generic.frameworks.types import FrameworkTensor
-from syft.generic.frameworks.types import FrameworkLayerModule
 from syft.generic.object import AbstractObject
 from syft.workers.abstract import AbstractWorker
-
-from syft_proto.execution.v1.protocol_pb2 import Protocol as ProtocolPB
 
 
 class func2protocol(object):

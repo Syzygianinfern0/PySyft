@@ -1,10 +1,11 @@
 import pytest
 import torch
-from torch import nn
 import torch.nn.functional as F
-from syft.generic.pointers.pointer_tensor import PointerTensor
-from syft.exceptions import InvalidTensorForRemoteGet
+from torch import nn
+
 import syft
+from syft.exceptions import InvalidTensorForRemoteGet
+from syft.generic.pointers.pointer_tensor import PointerTensor
 
 
 def test___str__(workers):

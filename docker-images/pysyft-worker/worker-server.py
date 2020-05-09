@@ -1,5 +1,7 @@
 import argparse
+
 import torch
+
 import syft as sy
 from syft import WebsocketServerWorker
 

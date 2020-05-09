@@ -1,8 +1,9 @@
 """To autoscale pygrid workers on Google Cloud Platfrom"""
-import os
 import json
+import os
 import shutil
 import subprocess
+
 import terrascript
 import terrascript.provider
 import terrascript.resource

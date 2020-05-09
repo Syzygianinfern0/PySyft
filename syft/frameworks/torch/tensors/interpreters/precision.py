@@ -1,5 +1,6 @@
-import torch
 import warnings
+
+import torch
 
 import syft
 from syft.frameworks.torch.nn import nn
